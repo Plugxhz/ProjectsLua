@@ -27,46 +27,6 @@ local Cache = {
     }
 }
 
--- Lista de IDs proibidos
-local Blacklist = {
-    1135910299, 1619950875, 1581720092, 1661505948, 679804290, 520944,
-    43247021, 2350183594, 1338963426, 1276541545, 587649463, 245586741,
-    174941504, 136099207, 94825741, 358051152, 529455640, 281482099,
-    355207559, 5084487, 928623624, 30049170, 474452017
-}
-
--- Checa jogadores proibidos ao entrar
-local function checkPlayer(player)
-    for _, id in ipairs(Blacklist) do
-        if player.UserId == id then
-            game.Players.LocalPlayer:Kick("Admin or Staff has joined the server")
-            return
-        end
-    end
-end
-
-game.Players.PlayerAdded:Connect(checkPlayer)
-for _, player in ipairs(game.Players:GetPlayers()) do
-    checkPlayer(player)
-end
-
--- Lista de IDs permitidos
-local Whitelist = {
-
-}
-
-local function isWhitelisted()
-    for _, id in ipairs(Whitelist) do
-        if game.Players.LocalPlayer.UserId == id then
-            return true
-        end
-    end
-    return false
-end
-
-if not isWhitelisted() then
-    game.Players.LocalPlayer:Kick("KICKED: Please purchase the script at discord.gg/mzuYhzfwv7")
-end
 
 
 local Tabs = {
